@@ -1,0 +1,214 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; 
+  font-size: 14px;
+  font-family: 'Montserrat', 'Fraunces';
+}
+
+:root{
+
+  /* PRIMARY COLORS */
+  --clr-Darkcyan: hsl(158, 36%, 37%);
+  --clr--Cream: hsl(30, 38%, 92%);
+
+  /* NEUTRAL COLORS */
+  --clr-Verydarkblue: hsl(212, 21%, 14%);
+  --clr-Darkgrayishblue: hsl(228, 12%, 48%);
+  --clr-White: hsl(0, 0%, 100%);
+
+}
+/* DOES REMOVE ALL THE DESIGN IN A BUTTON */
+button {
+  background: none;          /* Remove the default background */
+  border: none;             /* Remove the default border */
+  padding: 0;               /* Remove default padding */
+  margin: 0;                /* Remove default margin */
+  font: inherit;            /* Use the inherited font styles */
+  color: inherit;           /* Use the inherited text color */
+  text-align: inherit;      /* Use the inherited text alignment */
+  text-decoration: none;     /* Remove text decoration (underline) */
+  cursor: pointer;          /* Change the cursor to pointer on hover */
+  outline: none;            /* Remove focus outline */
+}
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--clr--Cream);
+}
+
+.container{
+  margin: 20px;
+  border-radius: 20px;
+  border: gray solid 1px;
+  width: 600px;
+  overflow:hidden;/* Ensures the image respects the container's border-radius */
+
+  display: grid;
+  grid-template: 35px repeat(3,140px)/ repeat(2,300px);
+  grid-template-areas: 
+  'box1 box2'
+  'box1 box3'
+  'box1 box4'
+  'box1 box5'
+  ;
+}
+.box1{
+  grid-area: box1;
+}
+.box2{
+  grid-area: box2;
+}
+.box3{
+  grid-area: box3;
+}
+.box4{
+  grid-area: 3/2/4/3;
+}
+.prdct-img {
+  width: 100%; /* Ensures the image fills the width of its container */
+  height: 100%; /* Maintains aspect ratio */
+  border-radius: inherit; /* Inherits the border-radius from the container */
+  display: block; /* Removes any unwanted inline spacing */
+}
+.txt-one{
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-top: 5px;
+  color: var(--clr-Darkgrayishblue);
+  font-size: 20px;
+  text-align: left;
+}
+.txt-two{
+  margin-top: 10px;
+  margin-left: 20px;
+  width: 220px;
+  color: var(--clr-Verydarkblue);
+  font-size: 37px;
+  font-weight: 700;
+  font-family: 'Fraunces';
+  text-align: left;
+}
+.txt-three{
+  margin-top: 25px;
+  margin-left: 20px;
+  width: 240px;
+  color: var(--clr-Darkgrayishblue);
+  font-size: 16px;
+  text-align: left;
+}
+.pricing{
+  display: grid;
+  grid-template: repeat(2, 1fr)/repeat(2, 1fr);
+  margin: 10px;
+  border-radius: 10px;
+
+  .price-current{
+    margin-left: 20px;
+    align-self: center;
+    justify-self: center;
+  }
+  .price-before{
+    align-self: center;
+    justify-self: flex-start;
+  }
+  .btn-cart{
+    align-self: center;
+    justify-self: center;
+    grid-column: 1 / -1; /* Makes the button span across both columns */
+  }
+}
+.price-current{
+  color: var(--clr-Darkcyan);
+  font-size:40px;
+  font-family: 'Fraunces';
+
+}
+.price-before{
+  color: var(--clr-Darkgrayishblue);
+  text-decoration: line-through;
+}
+/* BUTTON DESIGN */
+.btn-cart{
+  color: var(--clr-White);
+  background-color: var(--clr-Darkcyan);
+  margin: 10px 0;
+  padding: 10px 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-cart:hover{
+  opacity: 0.7;
+}
+.btn-cart:active{
+  background-color: darkgreen;
+} 
+
+.attribution { font-size: 11px; text-align: center; margin-bottom: 20px;}
+.attribution a { color: hsl(228, 45%, 44%);}
+
+
+@media screen and (max-width: 375px) {
+  .container{
+    border: gray solid 1px;
+    width: 350px;
+    grid-template: 280px 50px 125px 100px 125px/ 380px;
+    grid-template-areas: 
+    'box1'
+    'box2'
+    'box3'
+    'box4'
+    'box5'
+    ;
+  }
+  .box1{
+    grid-area: box1;
+    background-image: url(./images/image-product-desktop.jpg); /*shows the new image for mobile*/
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+  }
+  .box2{
+    grid-area: box2;
+  }
+  .box3{
+    grid-area: box3;
+  }
+  .box4{
+    grid-area: box4;
+  }
+  .prdct-img{
+    margin: 0;
+    padding: 0;
+    display: none; /*hides the img for desktop*/
+  }
+  /* TEXT */
+  .txt-one{
+    margin-top: 20px;
+  }
+  .txt-two{
+    margin-top: 10px;
+    width: 380px;
+  }
+  .txt-three{
+    margin-top: 10px;
+    width: 330px;
+  }
+  .pricing{
+    margin-top: 0;
+    padding-bottom: 20px;
+    .price-current{
+      margin-left: 0;
+      justify-self: start;
+    }
+    .price-before{
+      justify-self: start;
+    }
+  }
+  .attribution{
+    margin-bottom: 20px;
+  }
+
+}
